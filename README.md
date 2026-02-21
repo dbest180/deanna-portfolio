@@ -162,9 +162,9 @@ This project is open source and available for personal and commercial use. Pleas
 
 ## 👤 Author
 
-**Your Name**  
-- Portfolio: [yourwebsite.com](https://yourwebsite.com)
-- GitHub: [@yourusername](https://github.com/yourusername)
+**DBest Tech**  
+- Portfolio: To Be Added
+- GitHub: [@dbest180](https://github.com/dbest180)
 
 ## 🙏 Acknowledgments
 
@@ -175,4 +175,4 @@ This project is open source and available for personal and commercial use. Pleas
 
 ---
 
-*Last Updated: February 2024*
+*Last Updated: February 21st, 2026*
