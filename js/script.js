@@ -1,95 +1,80 @@
-// DOM Elements
-const navLinks = document.querySelectorAll('.nav-link');
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navMenu = document.querySelector('.nav-links');
-const bookNowBtn = document.getElementById('bookNowBtn');
-const bookingModal = document.getElementById('bookingModal');
-const closeModal = document.querySelector('.close-modal');
-const sections = document.querySelectorAll('.section');
-const currentYearSpan = document.getElementById('currentYear');
+// Mobile menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
 
-// Smooth scrolling for navigation
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+// Smooth scrolling for navigation links
+const navLinks = document.querySelectorAll('.nav-link');
+
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // Update active link
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-
-        // Close mobile menu if open
-        if (navMenu.classList.contains('active')) {
+        const targetId = link.getAttribute('href').substring(1); // remove #
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop - 70, // offset for fixed navbar
+                behavior: 'smooth'
+            });
+            // Close mobile menu if open
             navMenu.classList.remove('active');
-        }
-
-        // Scroll to section
-        const targetId = link.getAttribute('href');
-        if (targetId !== '#booking') {
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        } else {
-            // Handle booking button in nav
-            showBookingModal();
         }
     });
 });
 
-// Mobile menu toggle
-mobileMenuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    const icon = mobileMenuBtn.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
+// Active navigation highlight on scroll
+const sections = document.querySelectorAll('section');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+        }
+    });
 });
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-        navMenu.classList.remove('active');
-        const icon = mobileMenuBtn.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+// Modal functionality
+const modal = document.getElementById('booking-modal');
+const bookingBtn = document.getElementById('booking-btn');
+const closeBtn = document.querySelector('.close');
+
+bookingBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+});
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
     }
 });
 
-// Booking modal functionality
-function showBookingModal() {
-    bookingModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function hideBookingModal() {
-    bookingModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-bookNowBtn.addEventListener('click', showBookingModal);
-closeModal.addEventListener('click', hideBookingModal);
-
-// Close modal when clicking outside
-bookingModal.addEventListener('click', (e) => {
-    if (e.target === bookingModal) {
-        hideBookingModal();
-    }
+// Form submission simulation
+const bookingForm = document.getElementById('booking-form');
+bookingForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you! This is a simulation. No appointment was booked.');
+    modal.style.display = 'none';
 });
 
-// Close modal with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && bookingModal.style.display === 'flex') {
-        hideBookingModal();
-    }
-});
-
-// Animate sections on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Scroll animations with Intersection Observer
+const fadeElements = document.querySelectorAll('.fade-in-section');
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -97,61 +82,6 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.classList.add('visible');
         }
     });
-}, observerOptions);
+}, { threshold: 0.2 });
 
-sections.forEach(section => {
-    observer.observe(section);
-});
-
-// Set current year in footer
-currentYearSpan.textContent = new Date().getFullYear();
-
-// Form submission simulation (for future implementation)
-document.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (e.target.matches('form')) {
-        // Future form submission logic
-        alert('Thank you! This feature will be implemented soon.');
-    }
-});
-
-// Add hover effect to service cards dynamically
-const serviceCards = document.querySelectorAll('.service-card');
-serviceCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        const icon = card.querySelector('.service-icon i');
-        icon.style.transform = 'scale(1.2)';
-        icon.style.transition = 'transform 0.3s ease';
-    });
-
-    card.addEventListener('mouseleave', () => {
-        const icon = card.querySelector('.service-icon i');
-        icon.style.transform = 'scale(1)';
-    });
-});
-
-// QR code click to enlarge (future enhancement)
-const qrContainer = document.querySelector('.qr-container');
-qrContainer.addEventListener('click', () => {
-    // Future enhancement: Show enlarged QR code
-    console.log('QR code clicked - future enhancement: enlarge view');
-});
-
-// Initialize animations on page load
-document.addEventListener('DOMContentLoaded', () => {
-    // Add fade-in animation to header
-    const header = document.querySelector('header');
-    header.style.opacity = '0';
-    header.style.transform = 'translateY(-20px)';
-    header.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-
-    setTimeout(() => {
-        header.style.opacity = '1';
-        header.style.transform = 'translateY(0)';
-    }, 100);
-
-    // Make first section visible immediately
-    if (sections.length > 0) {
-        sections[0].classList.add('visible');
-    }
-});
+fadeElements.forEach(el => observer.observe(el));
