@@ -1,265 +1,201 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deanna - Massage Therapist</title>
+    <title>DBest Massage Therapy | Deanna</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap"
-        rel="stylesheet">
 </head>
-
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="profile-section">
-                    <div class="image-container">
-                        <img src="assets/deanna-pic.jpg" alt="Deanna - Massage Therapist" class="profile-img">
-                    </div>
-                    <div class="profile-info">
-                        <h1>Deanna Best</h1>
-                        <p class="tagline">Licensed Massage Therapist</p>
-                        <p class="specialty">Specializing in Therapeutic & Relaxation Massage</p>
-                    </div>
-                </div>
-                <div class="qr-section">
-                    <div class="qr-container">
-                        <img src="assets/qr.png" alt="Scan for contact info" class="qr-img">
-                        <p class="qr-label">Scan to save contact</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <nav class="main-nav">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link active">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#approach" class="nav-link">My Approach</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="#booking" class="nav-link booking-btn">Book Now</a></li>
-            </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">DBest Massage</div>
+            <div class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
-            </button>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#approach" class="nav-link">Approach</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <main class="container">
-        <section id="about" class="section">
-            <h2><i class="fas fa-heart"></i> About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>With over 18 years of experience in therapeutic massage, I am dedicated to helping clients achieve
-                        relaxation, pain relief, and overall wellness. My approach combines technical expertise with a
-                        compassionate understanding of each client's unique needs.</p>
-                    <p>I am certified in multiple modalities including Swedish massage, deep tissue therapy, and
-                        myofascial release. My passion is creating a serene environment where healing can naturally
-                        occur.</p>
-                    <!-- In the About section, replace the certifications part with this: -->
-                    <div class="certifications">
-                        <h3><i class="fas fa-award"></i> Certifications & Training</h3>
-                        <div class="certifications-grid">
-                            <a href="https://example.com" class="certification-item" target="_blank" rel="noopener">
-                                <div class="cert-icon">
-                                    <i class="fas fa-certificate"></i>
-                                </div>
-                                <div class="cert-text">
-                                    <h4>Licensed Massage Therapist (LMT)</h4>
-                                    <p>State Certified • 2006-Present</p>
-                                </div>
-                                <i class="fas fa-external-link-alt link-icon"></i>
-                            </a>
-                    
-                            <a href="https://example.com" class="certification-item" target="_blank" rel="noopener">
-                                <div class="cert-icon">
-                                    <i class="fas fa-hand-paper"></i>
-                                </div>
-                                <div class="cert-text">
-                                    <h4>Certified in Deep Tissue Therapy</h4>
-                                    <p>Advanced Techniques • 2008</p>
-                                </div>
-                                <i class="fas fa-external-link-alt link-icon"></i>
-                            </a>
-                    
-                            <a href="https://example.com" class="certification-item" target="_blank" rel="noopener">
-                                <div class="cert-icon">
-                                    <i class="fas fa-spa"></i>
-                                </div>
-                                <div class="cert-text">
-                                    <h4>Swedish Massage Specialist</h4>
-                                    <p>Classical Techniques • 2006</p>
-                                </div>
-                                <i class="fas fa-external-link-alt link-icon"></i>
-                            </a>
-                    
-                            <a href="https://example.com" class="certification-item" target="_blank" rel="noopener">
-                                <div class="cert-icon">
-                                    <i class="fas fa-hands"></i>
-                                </div>
-                                <div class="cert-text">
-                                    <h4>Myofascial Release Techniques</h4>
-                                    <p>Specialized Training • 2010</p>
-                                </div>
-                                <i class="fas fa-external-link-alt link-icon"></i>
-                            </a>
-                    
-                            <a href="https://example.com" class="certification-item" target="_blank" rel="noopener">
-                                <div class="cert-icon">
-                                    <i class="fas fa-heartbeat"></i>
-                                </div>
-                                <div class="cert-text">
-                                    <h4>CPR & First Aid Certified</h4>
-                                    <p>Current Certification • Renewed 2024</p>
-                                </div>
-                                <i class="fas fa-external-link-alt link-icon"></i>
-                            </a>
-                        </div>
-                    </div>
-        </section>
-
-        <section id="services" class="section">
-            <h2><i class="fas fa-spa"></i> Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hands"></i>
-                    </div>
-                    <h3>Swedish Massage</h3>
-                    <p>Perfect for relaxation and stress relief. Uses gentle pressure to promote overall wellness.</p>
-                    <span class="duration">60/90 min</span>
+    <!-- Main Content -->
+    <main>
+        <!-- Home/Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-container">
+                <div class="profile-image">
+                    <img src="assets/deanna-pic.jpg" alt="Deanna" class="profile-pic">
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hard-hat"></i>
-                    </div>
-                    <h3>Deep Tissue</h3>
-                    <p>Targets deeper muscle layers to relieve chronic pain and muscle tension.</p>
-                    <span class="duration">75/90 min</span>
+                <div class="hero-text">
+                    <h1>Deanna</h1>
+                    <p class="title">Licensed Massage Therapist</p>
+                    <p class="subtitle">DBest Massage Therapy</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Aromatherapy</h3>
-                    <p>Essential oils combined with massage techniques for enhanced relaxation.</p>
-                    <span class="duration">60 min</span>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-injured"></i>
-                    </div>
-                    <h3>Sports Massage</h3>
-                    <p>Focuses on areas of the body that are overused and stressed from repetitive activities.</p>
-                    <span class="duration">60/90 min</span>
+                <div class="qr-code">
+                    <img src="assets/qr-code.jpg" alt="QR Code" class="qr-img">
+                    <span class="qr-label">Scan to save contact</span>
                 </div>
             </div>
         </section>
 
-        <section id="approach" class="section">
-            <h2><i class="fas fa-hands-helping"></i> My Approach</h2>
-            <div class="approach-content">
-                <div class="approach-item">
-                    <i class="fas fa-user-check"></i>
-                    <h3>Client-Centered</h3>
-                    <p>Every session is tailored to your specific needs and comfort level.</p>
-                </div>
-                <div class="approach-item">
-                    <i class="fas fa-seedling"></i>
-                    <h3>Holistic Healing</h3>
-                    <p>I believe in treating the whole person, not just symptoms.</p>
-                </div>
-                <div class="approach-item">
-                    <i class="fas fa-clock"></i>
-                    <h3>Flexible Scheduling</h3>
-                    <p>Offering convenient appointment times to fit your busy schedule.</p>
-                </div>
-                <div class="approach-item">
-                    <i class="fas fa-home"></i>
-                    <h3>Mobile Service</h3>
-                    <p>Available for in-home sessions in the local area (additional fee applies).</p>
+        <!-- About Section (with fade-in animation) -->
+        <section id="about" class="about fade-in-section">
+            <div class="container">
+                <h2>About Deanna</h2>
+                <div class="about-content">
+                    <div class="bio">
+                        <p>Deanna is a licensed massage therapist with over 10 years of experience in therapeutic massage. She specializes in deep tissue, sports massage, and relaxation techniques. Her approach is holistic, focusing on client wellness and personalized care.</p>
+                    </div>
+                    <div class="certifications-grid">
+                        <div class="cert-card">
+                            <i class="fas fa-certificate"></i>
+                            <h3>Licensed Massage Therapist</h3>
+                            <p>State License #12345</p>
+                        </div>
+                        <div class="cert-card">
+                            <i class="fas fa-spa"></i>
+                            <h3>Certified in Sports Massage</h3>
+                            <p>National Sports Massage Certification</p>
+                        </div>
+                        <div class="cert-card">
+                            <i class="fas fa-heart"></i>
+                            <h3>Prenatal Massage</h3>
+                            <p>Certified Prenatal Specialist</p>
+                        </div>
+                        <div class="cert-card">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Holistic Health Coach</h3>
+                            <p>Integrative Wellness</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <h2><i class="fas fa-envelope"></i> Contact & Location</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>(281) 704-2349</p>
-                        </div>
+        <!-- Services Section (fade-in) -->
+        <section id="services" class="services fade-in-section">
+            <div class="container">
+                <h2>Massage Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h3>Swedish Massage</h3>
+                        <p>Gentle, relaxing massage to ease tension and improve circulation.</p>
+                        <span class="duration">60 min</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>deannabest@gmail.com</p>
-                        </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-dumbbell"></i></div>
+                        <h3>Deep Tissue</h3>
+                        <p>Targets deep muscle layers and connective tissue for chronic pain.</p>
+                        <span class="duration">60 min</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Studio Location</h3>
-                            <p>123 Wellness Street<br>Houston, HC 12345</p>
-                        </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-running"></i></div>
+                        <h3>Sports Massage</h3>
+                        <p>Designed for athletes to prevent injury and enhance performance.</p>
+                        <span class="duration">60 min</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Hours</h3>
-                            <p>Mon-Fri: 9am-7pm<br>Sat: 10am-4pm<br>Sun: By appointment</p>
-                        </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-baby"></i></div>
+                        <h3>Prenatal Massage</h3>
+                        <p>Safe and soothing massage for expectant mothers.</p>
+                        <span class="duration">60 min</span>
                     </div>
                 </div>
-                <div class="booking-preview" id="booking">
-                    <h3>Ready to Relax?</h3>
-                    <p>Book your session today and experience the benefits of professional therapeutic massage.</p>
-                    <button class="cta-button" id="bookNowBtn">
-                        <i class="fas fa-calendar-check"></i> Book Appointment
-                    </button>
-                    <div class="booking-modal" id="bookingModal">
-                        <div class="modal-content">
-                            <span class="close-modal">&times;</span>
-                            <h3>Book Your Session</h3>
-                            <p>For appointments, please call or text (281) 704-2349</p>
-                            <p>Or email deannabest@gmail.com</p>
-                            <p class="modal-note">Online booking coming soon!</p>
-                        </div>
+            </div>
+        </section>
+
+        <!-- Approach Section (fade-in) -->
+        <section id="approach" class="approach fade-in-section">
+            <div class="container">
+                <h2>My Approach</h2>
+                <div class="approach-content">
+                    <p>I believe in a client-centered approach, combining various techniques to address individual needs. Every session begins with a consultation to understand your concerns and goals. I integrate deep tissue, myofascial release, and aromatherapy to create a customized experience that promotes healing and relaxation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (fade-in) -->
+        <section id="contact" class="contact fade-in-section">
+            <div class="container">
+                <h2>Contact & Booking</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone-alt"></i> (123) 456-7890</p>
+                        <p><i class="fas fa-envelope"></i> deanna@dbestmassage.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Wellness Ave, Suite 100, City, ST 12345</p>
+                    </div>
+                    <div class="booking-preview">
+                        <button id="booking-btn" class="btn">Book an Appointment</button>
+                        <p class="booking-note">Click to simulate booking form</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>Deanna Best</h3>
-                    <p>Licensed Massage Therapist</p>
-                </div>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                </div>
-                <p class="copyright">© <span id="currentYear"></span> Deanna Best. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
+            <p>&copy; 2026 DBest Massage Therapy. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book an Appointment</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service</label>
+                    <select id="service" name="service">
+                        <option value="swedish">Swedish Massage</option>
+                        <option value="deep tissue">Deep Tissue</option>
+                        <option value="sports">Sports Massage</option>
+                        <option value="prenatal">Prenatal Massage</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+            <p class="form-note">This is a simulation. No actual booking will be made.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
     <script src="js/script.js"></script>
 </body>
-
 </html>
