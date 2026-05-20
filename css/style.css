@@ -5,6 +5,12 @@
     --medium-purple: #7B6BA8;
     --accent-purple: #9B8BC6;
     --white: #FFFFFF;
+    --error-red: #d32f2f;
+    --success-green: #388e3c;
+    --text-gray: #666666;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 /* Base Styles */
@@ -19,6 +25,32 @@ body {
     color: var(--dark-purple);
     background-color: var(--light-lilac);
     line-height: 1.6;
+}
+
+/* Accessibility: Focus states */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--medium-purple);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--dark-purple);
+    color: var(--white);
+    padding: 8px;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 h1, h2, h3 {
@@ -74,12 +106,21 @@ h1, h2, h3 {
     text-decoration: none;
     color: var(--dark-purple);
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s, border-bottom 0.3s;
+    position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: var(--accent-purple);
+}
+
+/* Active indicator for touch devices */
+@media (hover: none) {
+    .nav-link:active {
+        color: var(--accent-purple);
+        border-bottom: 2px solid var(--accent-purple);
+    }
 }
 
 /* Hero Section */
@@ -340,6 +381,33 @@ h1, h2, h3 {
     transform: scale(1.05);
 }
 
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:disabled,
+.btn.loading {
+    background: var(--text-gray);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn.loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 .booking-note {
     margin-top: 0.5rem;
     font-size: 0.9rem;
@@ -421,12 +489,40 @@ footer {
     font-weight: 500;
 }
 
+.required {
+    color: var(--error-red);
+}
+
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
+    padding: 0.75rem;
+    border: 2px solid #ccc;
     border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--medium-purple);
+    box-shadow: 0 0 0 3px rgba(123, 107, 168, 0.2);
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: var(--error-red);
+}
+
+.form-group .error-message {
+    display: block;
+    color: var(--error-red);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    min-height: 1.2em;
 }
 
 .form-note {
@@ -448,9 +544,167 @@ footer {
     transform: translateY(0);
 }
 
+/* Testimonials Section */
+.testimonials {
+    padding: 4rem 0;
+    background: var(--white);
+}
+
+.testimonials h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background: var(--light-lilac);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.testimonial-content p {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.testimonial-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--dark-purple);
+}
+
+.stars {
+    color: var(--accent-purple);
+}
+
+.stars i {
+    margin-left: 2px;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 4rem 0;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    border: 2px solid var(--medium-purple);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1.25rem;
+    background: var(--white);
+    border: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--dark-purple);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: var(--light-lilac);
+}
+
+.faq-question[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.faq-question i {
+    transition: transform 0.3s;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.faq-answer p {
+    padding: 1.25rem;
+    background: var(--light-lilac);
+    margin: 0;
+    line-height: 1.8;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+}
+
+/* Notification Toast */
+.notification {
+    position: fixed;
+    bottom: -100px;
+    right: 20px;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    color: var(--white);
+    font-weight: 500;
+    z-index: 1000;
+    transition: bottom 0.3s ease-out;
+    box-shadow: var(--shadow-lg);
+}
+
+.notification.show {
+    bottom: 20px;
+}
+
+.notification.success {
+    background: var(--success-green);
+}
+
+.notification.error {
+    background: var(--error-red);
+}
+
+.notification.info {
+    background: var(--medium-purple);
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .testimonials-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -506,6 +760,10 @@ footer {
     }
 
     .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
         grid-template-columns: 1fr;
     }
 

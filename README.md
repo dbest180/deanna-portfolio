@@ -92,3 +92,112 @@ deanna-portfolio
    ```bash
    git clone https://github.com/your-username/portfolio.git
    cd portfolio
+   ```
+
+2. **Open in Browser**
+   - Simply open `index.html` in your web browser
+   - No build process required - this is a static site
+
+3. **Customization**
+   - Replace placeholder images in `assets/` folder with your own
+   - Update contact information in `index.html`
+   - Modify color scheme by editing CSS variables in `css/style.css`
+
+## 🔧 Development
+
+### File Structure
+```
+deanna-portfolio/
+├── index.html          # Main HTML file
+├── README.md           # Project documentation
+├── .gitignore          # Git ignore file
+├── assets/             # Image assets
+│   ├── deanna-pic.jpg  # Profile picture
+│   └── qr.png          # QR code image
+├── css/
+│   └── style.css       # All styling with CSS variables
+└── js/
+    └── script.js       # Interactive features
+```
+
+### Key Features Implemented
+
+#### Accessibility (WCAG 2.1)
+- Semantic HTML structure
+- ARIA labels and roles for interactive elements
+- Keyboard navigation support
+- Focus indicators for all interactive elements
+- Screen reader friendly modal dialogs
+- Skip link for main content
+
+#### Performance
+- Throttled scroll event handlers
+- Intersection Observer for animations
+- Lazy loading ready for images
+- Preconnect hints for external resources
+- Minimized reflows and repaints
+
+#### Form Validation
+- Client-side validation with error messages
+- Date picker with minimum date constraint
+- Email format validation
+- Phone number format validation
+- Loading states during submission
+- Toast notifications for feedback
+
+#### Responsive Design
+- Mobile-first approach
+- Breakpoints at 768px and 992px
+- Hamburger menu with click-outside closing
+- Flexible grid layouts
+- Touch-friendly interactive elements
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 🎨 Customization Guide
+
+### Changing Colors
+Edit CSS variables in `css/style.css`:
+```css
+:root {
+    --dark-purple: #4A306D;      /* Primary text color */
+    --light-lilac: #F5F0FF;      /* Background color */
+    --medium-purple: #7B6BA8;    /* Primary accent */
+    --accent-purple: #9B8BC6;    /* Secondary accent */
+}
+```
+
+### Adding New Services
+Copy an existing service card in `index.html` and modify:
+```html
+<div class="service-card">
+    <div class="service-icon"><i class="fas fa-your-icon"></i></div>
+    <h3>Service Name</h3>
+    <p>Description here.</p>
+    <span class="duration">60 min</span>
+</div>
+```
+
+### Updating Social Links
+Find the footer section in `index.html` and replace placeholder URLs:
+```html
+<a href="https://facebook.com/yourpage" aria-label="Facebook">...</a>
+```
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 👤 Author
+
+Created for Deanna - Licensed Massage Therapist
+
+## 🤝 Contributing
+
+Feel free to submit issues and enhancement requests!
